@@ -1,10 +1,10 @@
 import { useState } from "react"
+import confetti from "canvas-confetti"
 
 const TURNS = {
   X: 'x',
   O: 'o'
 }
-
 
 const Square = ({children, isSelected, updateBoard, index}) => {
   const className = `square ${isSelected ? 'is-selected' : ''}`
@@ -56,6 +56,10 @@ function App() {
     return null
   }
 
+  const checkEndGame = (boardToCheck) => {
+    return boardToCheck.every((square) => square !== null)
+  }
+
   const updateBoard = (index) => {
     // no actualizamos si ya tiene algo
     if (board[index] || winner) return
@@ -69,8 +73,11 @@ function App() {
     // revisar si hay ganador
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
+      confetti()
       setWinner(newWinner)
-    } // TODO: check if game is over
+    } else if (checkEndGame(newBoard)) {
+      setWinner(false)
+    }
   }
 
   const resetGame = () => {
@@ -85,7 +92,7 @@ function App() {
       <button onClick={resetGame}>Reset del juego</button>
       <section className="game">
         {
-          board.map((_, index) => {
+          board.map((square, index) => {
             return (
               <Square
                 key={index}
