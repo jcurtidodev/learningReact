@@ -1,11 +1,11 @@
-import { useState } from "react"
-import confetti from "canvas-confetti"
-import { Square } from "./components/Square.jsx"
-import { TURNS } from "./constants.js"
-import { checkWinnerFrom, checkEndGame } from "./logic/board.js"
-import { WinnerModal } from "./components/WinnerModal.jsx"
-import { Board } from "./components/Board.jsx"
-import { saveGameToStorage, resetGametoStorage } from "./logic/storage/index.js"
+import { useState } from 'react'
+import confetti from 'canvas-confetti'
+import { Square } from './components/Square.jsx'
+import { TURNS } from './constants.js'
+import { checkWinnerFrom, checkEndGame } from './logic/board.js'
+import { WinnerModal } from './components/WinnerModal.jsx'
+import { Board } from './components/Board.jsx'
+import { saveGameToStorage, resetGametoStorage } from './logic/storage/index.js'
 
 function App() {
 
