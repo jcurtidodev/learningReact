@@ -3,7 +3,7 @@ import { useMovies } from './hooks/useMovies.js'
 import { Movies } from './components/Movies.jsx'
 
 function App() {
-  const { movies : mappedMovies } = useMovies()
+  const { movies } = useMovies()
   return (
     <div className='page'>
 
@@ -16,7 +16,7 @@ function App() {
       </header>
 
       <main>
-        <Movies movies={mappedMovies} />
+        <Movies movies={movies} />
       </main>
     </div>
   )
