@@ -28,6 +28,8 @@ function useSearch() {
       setError('La búsqueda debe tener al menos 3 caracteres')
       return
     }
+
+    setError(null)
   }, [search])
 
   return { search, updateSearch, error }
@@ -35,13 +37,12 @@ function useSearch() {
 
 
 function App() {
-  const { movies } = useMovies()
-  // const inputRef = useRef()
   const { search, updateSearch, error } = useSearch()
+  const { movies, loading, getMovies } = useMovies({ search })
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log({ search })
+    getMovies()
   }
 
   const handleChange = (event) => {
@@ -71,7 +72,9 @@ function App() {
       </header>
 
       <main>
-        <Movies movies={movies} />
+        {
+          loading ? <p>Cargando ...</p> : <Movies movies={movies} />
+        }
       </main>
     </div>
   )

@@ -1,5 +1,3 @@
-import withoutResults from '../mocks/no-results.json'
-
 export function ListOfMovies({ movies }) {
   return (
     <ul className='movies'>
@@ -18,7 +16,7 @@ export function ListOfMovies({ movies }) {
 
 export function NoMoviesResults() {
   return (
-    <p>{withoutResults.Error}</p>
+    <p>No se encontraron películas para esta búsqueda</p>
   )
 }
 

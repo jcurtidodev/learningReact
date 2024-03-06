@@ -13,8 +13,8 @@ Requerimientos:
 - Lista de las películas encontradas y muestra el título, año y poster. ✅
   - Listar películas, mostrar título, año y poster. ✅
   - Que el formulario funcione. ✅
-    - Hacer el fetch
-- Haz que las películas se muestren en un grid responsive.
+    - Hacer el fetch ✅
+- Haz que las películas se muestren en un grid responsive. ✅
 
 Primera iteración:
 
