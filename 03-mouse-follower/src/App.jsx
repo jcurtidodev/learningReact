@@ -15,8 +15,6 @@ const FollowMouse = () => {
 
   // pointer move
   useEffect(() => {
-    console.log('effect', { enabled })
-
     const handleMove = (event) => {
       const { clientX, clientY } = event
       setPosition({x: clientX, y: clientY})
@@ -32,7 +30,6 @@ const FollowMouse = () => {
     // -> cuando el componente se desmonta
     // -> cuando cambian las depependencias, antes de ejecutar el efecto de nuevo
     return () => {
-      console.log('cleanup')
       window.removeEventListener('pointermove', handleMove)
     }
   }, [enabled])
