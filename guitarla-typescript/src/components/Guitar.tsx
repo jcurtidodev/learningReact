@@ -1,10 +1,17 @@
-export default function Guitar({ guitar, addToCart }) {
-  const { name, description, price } = guitar
+import type { Guitar } from '../types/types.ts'
+
+type GuitarProps = {
+  guitar: Guitar,
+  addToCart: (item: Guitar) => void
+}
+
+export default function Guitar({ guitar, addToCart } : GuitarProps) {
+  const { name, image, description, price } = guitar
 
   return (
     <div className="col-md-6 col-lg-4 my-4 row align-items-center">
       <div className="col-4">
-        <img className="img-fluid" src={`/img/${guitar.image}.jpg`} alt="imagen guitarra" />
+        <img className="img-fluid" src={`/img/${image}.jpg`} alt="imagen guitarra" />
       </div>
       <div className="col-8">
         <h3 className="text-black fs-4 fw-bold text-uppercase">{name}</h3>
