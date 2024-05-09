@@ -1,11 +1,20 @@
 import MenuItem from "./components/MenuItem"
 import OrderContents from "./components/OrderContents"
+import TipPercentageForm from "./components/TipPercentageForm"
 import { menuItems } from "./data/db"
+import OrderTotals from "./components/OrderTotals"
 import useOrder from "./hooks/useOrder"
+
 
 function App() {
 
-  const { order, addItem, removeItem } = useOrder()
+  const { order, tip, setTip, addItem, removeItem, placeOrder } = useOrder()
+
+  const reactiveClasses = (length: number) => {
+    return length <= 0 ?
+      'p-5 border border-solid border-slate-300 rounded-sm space-y-10 grid items-center text-xl font-bold'
+      : 'p-5 border border-solid border-slate-300 rounded-sm space-y-10'
+  }
 
   return (
     <>
@@ -29,11 +38,28 @@ function App() {
         </div>
 
 
-        <div className="p-5 border border-solid border-slate-300 rounded-sm space-y-10">
-          <OrderContents
-            order={order}
-            removeItem={removeItem}
-          />
+        <div className={reactiveClasses(order.length)}>
+          {order.length ? (
+            <>
+              <OrderContents
+                order={order}
+                removeItem={removeItem}
+              />
+
+              <TipPercentageForm
+                setTip={setTip}
+                tip={tip}
+              />
+
+              <OrderTotals
+                order={order}
+                tip={tip}
+                placeOrder={placeOrder}
+              />
+            </>
+          ) : (
+            <p className="text-center">La lista está vacía</p>
+          )}
         </div>
       </main>
     </>
