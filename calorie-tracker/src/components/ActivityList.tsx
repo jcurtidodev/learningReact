@@ -36,7 +36,7 @@ export default function ActivityList({ activities, dispatch }: ActivityListProps
               ${activity.category === 1 ? 'bg-lime-400' : 'bg-orange-500'}`}>
                   {categoryName(+activity.category)}
                 </p>
-                <p className="text-2xl font-bold pt-5">{activity.name}</p>
+                <p className="text-2xl font-bold pt-5 capitalize">{activity.name}</p>
                 <p className="font-black text-4xl text-lime-500">
                   {activity.calories} {''}
                   <span>Calorías</span>
