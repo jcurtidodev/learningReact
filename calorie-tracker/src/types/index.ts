@@ -9,3 +9,12 @@ export type Activity = {
   name: string,
   calories: number
 }
+
+export type Person = {
+  id: string,
+  genre: string,
+  weight: number,
+  height: number,
+  years: number,
+  BMR: number | null
+}

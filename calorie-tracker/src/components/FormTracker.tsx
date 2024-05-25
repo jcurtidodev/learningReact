@@ -16,7 +16,7 @@ const initialState: Activity = ({
   calories: 0
 })
 
-export default function Form({ dispatch, state }: FormProps) {
+export default function FormTracker({ dispatch, state }: FormProps) {
 
   const [activity, setActivity] = useState<Activity>(initialState)
 

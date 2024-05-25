@@ -18,13 +18,13 @@ const localStorageActivities = () : Activity[] => {
 }
 
 //state inicial
-export const initialState: ActivityState = {
+export const initialActivityState: ActivityState = {
   activities: localStorageActivities(),
   activeId: ''
 }
 
 //reducer
-export const activityReducer = (state: ActivityState = initialState, action: ActivityActions) => {
+export const activityReducer = (state: ActivityState = initialActivityState, action: ActivityActions) => {
   if (action.type === 'save-activity') {
     let updatedActivities : Activity[] = []
     if(state.activeId) {

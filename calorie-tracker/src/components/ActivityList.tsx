@@ -43,9 +43,12 @@ export default function ActivityList({ activities, dispatch }: ActivityListProps
                 </p>
               </div>
 
-              <div className="flex gap-5 items-center">
+              <div className="flex gap-5 items-center transition-all">
                 <button
-                  onClick={() => dispatch({ type: "set-activeId", payload: { id: activity.id } })}
+                  onClick={() => {
+                    dispatch({ type: "set-activeId", payload: { id: activity.id } })
+                    window.scrollTo(0, 0)
+                  }}
                 >
                   <PencilSquareIcon
                     className="h-8 w-8 text-gray-800"
