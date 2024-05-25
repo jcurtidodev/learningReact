@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { db } from '../mocks/db.js'
 import { useMemo } from "react"
 import type { Guitar, CartItem } from '../types/types.ts'
 
@@ -13,7 +12,6 @@ export const useCart = () => {
     return cartFromStorage ? JSON.parse(cartFromStorage) : []
   }
 
-  const [ data ] = useState(db)
   const [cart, setCart] = useState(initialCart)
 
   // Guardar datos en localStorage
@@ -75,7 +73,6 @@ export const useCart = () => {
   const cartTotal = useMemo( () => cart.reduce( (total, item) => total + (item.price * item.quantity), 0), [cart])
 
   return {
-    data,
     cart,
     addToCart,
     removeFromCart,
