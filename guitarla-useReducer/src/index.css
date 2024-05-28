@@ -49,6 +49,8 @@
 #carrito .btn-dark {
   padding: 0 2px;
   margin: 0 3px;
+  width: 1rem;
+  text-align: center;
 }
 .m-0 {
   margin: 0;
