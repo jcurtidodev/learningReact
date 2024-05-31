@@ -3,14 +3,11 @@ import OrderContents from "./components/OrderContents"
 import TipPercentageForm from "./components/TipPercentageForm"
 import { menuItems } from "./data/db"
 import OrderTotals from "./components/OrderTotals"
-import useOrder from "./hooks/useOrder"
 import { useReducer } from "react"
 import { initialState, orderReducer } from "./reducers/order-reducer"
 
 
 function App() {
-
-  const { order, tip, setTip, removeItem, placeOrder } = useOrder()
 
   const [state, dispatch] = useReducer(orderReducer, initialState)
 
@@ -42,23 +39,23 @@ function App() {
         </div>
 
 
-        <div className={reactiveClasses(order.length)}>
-          {state. order.length ? (
+        <div className={reactiveClasses(state.order.length)}>
+          {state.order.length ? (
             <>
               <OrderContents
                 order={state.order}
-                removeItem={removeItem}
+                dispatch={dispatch}
               />
 
               <TipPercentageForm
-                setTip={setTip}
-                tip={tip}
+                dispatch={dispatch}
+                tip={state.tip}
               />
 
               <OrderTotals
                 order={state.order}
-                tip={tip}
-                placeOrder={placeOrder}
+                tip={state.tip}
+                dispatch={dispatch}
               />
             </>
           ) : (
